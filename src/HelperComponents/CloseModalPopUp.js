@@ -1,6 +1,6 @@
 import { ModalContext } from '../Components/Context/ModalContext';
 import { useContext } from "react";
-export function CloseModal() {
+export function CloseModal( props ) {
 	let { setCurrentElement, setShowModal } = useContext(ModalContext);
 	const closeModalFunction = () => {
 		setCurrentElement(false);
@@ -8,7 +8,7 @@ export function CloseModal() {
 	}
 	return (
 		<>
-			<button onClick={closeModalFunction}>✕</button>
+			<button onClick={closeModalFunction} ref={props?.reference ? props.reference : null}>✕</button>
 		</>
 	)
 }

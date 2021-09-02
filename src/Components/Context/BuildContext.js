@@ -2,9 +2,12 @@ import React from 'react';
 import update from 'immutability-helper';
 import { ItemTypes } from '../../Data';
 import fetchData from '../../HelperComponents/fetchData';
+import { ModalContext } from './ModalContext';
 
 export class BuildContextProvider extends React.Component {
-    state = {
+ 
+	static contextType = ModalContext;
+	state = {
         List: {
 			[ItemTypes.START_ELEMENTS]: [],
 			[ItemTypes.CONTENT_ELEMENTS]: [],
@@ -114,6 +117,14 @@ export class BuildContextProvider extends React.Component {
         fetchData(ajaxURL, data)
         .then(data => {
             e.target.classList.remove('surveyfunnel-lite-button-loading');
+			const { setCurrentElement, setShowModal } = this.context;
+			let currentElement = {
+				status: 'success',
+				message: 'Data Saved Successfully!',
+				componentName: 'alert',
+			}
+			setCurrentElement(currentElement);
+			setShowModal(true);
         });
     }
 

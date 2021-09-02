@@ -13,6 +13,7 @@ import { ResultScreen } from "./Elements/ResultScreenElements";
 import { CoverPage } from "./Elements/StartScreenElements";
 import PostTitle from "./Elements/PostTitle";
 import { DesignContext } from "../Context/DesignContext";
+import Alert from "../../HelperComponents/Alert";
 
 export default function ModalBox() {
     const { showModal, currentElement } = useContext(ModalContext);
@@ -38,6 +39,8 @@ export default function ModalBox() {
                 return <FormElements {...componentProps} />
             case 'postTitle':
                 return <PostTitle {...componentProps} />
+			case 'alert':
+				return <Alert status={currentElement.status} message={currentElement.message} />
             default:
                 return "";
         }

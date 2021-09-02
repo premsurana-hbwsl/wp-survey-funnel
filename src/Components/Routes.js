@@ -80,13 +80,14 @@ export default function Routes() {
                 </div>
             </div>
             <DesignContextProvider>
+			<ModalContextProvider>
                 <BuildContextProvider>
                 <Suspense fallback={<div>Loading...</div>}>
                     <Switch>
                         <Route path="/build">
-                            <ModalContextProvider>
+                            
                             <Build></Build>
-                            </ModalContextProvider>
+                           
                         </Route>
                         <Route path="/design">
                             <Design></Design>
@@ -107,6 +108,7 @@ export default function Routes() {
                     </Switch>
                 </Suspense>
                 </BuildContextProvider>
+				</ModalContextProvider>
             </DesignContextProvider>
         </Router>
     );
