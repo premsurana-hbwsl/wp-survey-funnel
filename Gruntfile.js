@@ -200,7 +200,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-compress' );
 	grunt.loadNpmTasks( 'grunt-contrib-uglify' );
 	grunt.loadNpmTasks( 'grunt-contrib-cssmin' );
-	grunt.loadNpmTasks('grunt-shell');
+	grunt.loadNpmTasks( 'grunt-shell' );
 	grunt.registerTask( 'default', ['i18n'] );
 	grunt.registerTask( 'i18n', ['addtextdomain', 'makepot'] );
 	grunt.registerTask( 'compile', ['shell:build'] );
